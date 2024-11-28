@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
 Route::get('/', function () {
+    $job =  Job::all();
+
+//    dd($job[1]->title);
     return view('home');
 });
 
