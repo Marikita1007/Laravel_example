@@ -10,6 +10,10 @@
                 </div>
             </a>
         @endforeach
+
+        <div>
+            {{ $jobs->links() }}
+        </div>
     </ul>
 </x-layout>
 
