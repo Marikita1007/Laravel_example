@@ -4,11 +4,13 @@ use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+use App\Models\Job;
+use App\Jobs\TranslateJob;
 
 Route::get('test', function () {
-    \Illuminate\Support\Facades\Mail::to('test@live.com')->send(
-        new \App\Mail\JobPosted()
-    );
+    $job = Job::first();
+
+    TranslateJob::dispatch($job);
 
     return'Done';
 });
